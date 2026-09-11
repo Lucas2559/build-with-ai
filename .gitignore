@@ -3,3 +3,6 @@
 *.jpg
 *.jpeg
 .playwright-mcp/
+
+# Large media — share via Drive/YouTube (GitHub rejects files >100MB)
+*.mp4
