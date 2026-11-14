@@ -369,7 +369,8 @@
                 builder: "L.",
                 tag: "Book Trailer",
                 description: "A 50-food guide book with its own movie-style trailer, voiced and edited with AI.",
-                url: "",
+                url: "projects/food-book/index.html",
+                linkText: "Read the book ▶",
                 video: "videos/food-book-trailer.mp4"
             }
         ];
@@ -432,7 +433,7 @@
                 play.href = p.url;
                 play.target = "_blank";
                 play.rel = "noopener";
-                play.textContent = "Play ▶";
+                play.textContent = p.linkText || "Play ▶";
                 body.appendChild(play);
             }
 
