@@ -124,6 +124,15 @@
             background: #fff;
         }
 
+        .preview video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #000;
+        }
+
         .preview .soon {
             position: absolute;
             inset: 0;
@@ -354,6 +363,14 @@
                 tag: "Creative Tool",
                 description: "Type in a company name and get animated logo options you can play as a short intro clip. There's an ad builder too.",
                 url: "https://clipstudio-omega.vercel.app"
+            },
+            {
+                title: "A Guide to Foods",
+                builder: "L.",
+                tag: "Book Trailer",
+                description: "A 50-food guide book with its own movie-style trailer, voiced and edited with AI.",
+                url: "",
+                video: "videos/food-book-trailer.mp4"
             }
         ];
 
@@ -365,7 +382,14 @@
 
             const preview = document.createElement("div");
             preview.className = "preview";
-            if (p.url) {
+            if (p.video) {
+                const video = document.createElement("video");
+                video.src = p.video;
+                video.controls = true;
+                video.preload = "metadata";
+                video.playsInline = true;
+                preview.appendChild(video);
+            } else if (p.url) {
                 const frame = document.createElement("iframe");
                 frame.src = p.url;
                 frame.title = "Preview of " + p.title;
