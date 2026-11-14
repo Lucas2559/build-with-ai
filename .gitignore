@@ -7,3 +7,4 @@
 # Large media — share via Drive/YouTube (GitHub rejects files >100MB)
 *.mp4
 !videos/*.mp4
+!videos/*.jpg
