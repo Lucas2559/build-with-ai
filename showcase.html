@@ -139,11 +139,10 @@
             inset: 0;
             z-index: 1;
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            align-items: flex-end;
             justify-content: flex-end;
             gap: 10px;
-            padding: 0 16px 18px;
+            padding: 0 18px 16px;
             border: 0;
             cursor: pointer;
             color: #fff;
@@ -155,7 +154,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.2) 45%, rgba(0, 0, 0, 0) 70%);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 35%);
             transition: background 0.3s ease;
         }
 
@@ -165,12 +164,10 @@
         .start-screen > * { position: relative; }
 
         .start-screen .big-play {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 72px;
-            height: 72px;
-            margin: -36px 0 0 -36px;
+            position: relative;
+            flex-shrink: 0;
+            width: 54px;
+            height: 54px;
             border-radius: 50%;
             background: rgba(220, 38, 38, 0.92);
             box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.25), 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -185,7 +182,7 @@
             left: 54%;
             transform: translate(-50%, -50%);
             border-style: solid;
-            border-width: 13px 0 13px 22px;
+            border-width: 10px 0 10px 17px;
             border-color: transparent transparent transparent #fff;
         }
 
@@ -205,6 +202,7 @@
             font-weight: 700;
             letter-spacing: 0.08em;
             text-transform: uppercase;
+            margin-bottom: 14px; /* line up with the middle of the play button */
             padding: 4px 12px;
             border-radius: 9999px;
             background: rgba(0, 0, 0, 0.55);
@@ -460,7 +458,7 @@
                 video: "videos/food-book-trailer.mp4",
                 startScreen: {
                     poster: "videos/food-book-trailer-poster.jpg",
-                    label: "▶ Watch the trailer · 0:51"
+                    label: "Watch the trailer · 0:51"
                 }
             },
             {
@@ -511,7 +509,7 @@
                     const meta = document.createElement("span");
                     meta.className = "meta";
                     meta.textContent = p.startScreen.label;
-                    start.append(ring, meta);
+                    start.append(meta, ring);
                     start.addEventListener("click", () => {
                         start.remove();
                         video.play();
